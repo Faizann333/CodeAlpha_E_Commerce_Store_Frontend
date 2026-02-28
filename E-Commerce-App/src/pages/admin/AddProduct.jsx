@@ -48,7 +48,7 @@ const AddProduct = () => {
     
 return (
     <div className="min-h-screen bg-gray-800 flex justify-center items-center p-6">
-      <div className="bg-gray-600 shadow-lg rounded-2xl p-8 w-full max-w-2xl text-gray-200">
+      <div className="bg-gray-700 shadow-lg rounded-2xl p-8 w-full max-w-2xl text-gray-200">
         <h2 className="text-2xl font-bold mb-6 text-center">
           Add New Product
         </h2>
@@ -145,7 +145,7 @@ return (
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 transition"
+            className="w-full bg-purple-700 text-white py-3 rounded-lg hover:bg-gray-800 transition"
           >
             Add Product
           </button>

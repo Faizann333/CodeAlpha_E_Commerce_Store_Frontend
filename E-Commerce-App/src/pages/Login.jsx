@@ -5,6 +5,7 @@ import axios from 'axios';
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 import { useContext } from 'react';
 import { AuthContext } from '../store/AuthContext';
+import { toast } from "react-toastify";
 
 const Login = () => {
   const {setUser} = useContext(AuthContext);
@@ -19,12 +20,13 @@ const Login = () => {
       password
     }, { withCredentials: true })
       .then((res) => {
-        alert("Login successful!");
+        toast.success("Login successful!");
+        
         setUser(res.data.user);
         navigate('/');
       })
       .catch((err) => {
-        alert("Login failed: " + err.response.data.message);
+        toast.error("Login failed: " + err.response.data.message);
       });
   }
 

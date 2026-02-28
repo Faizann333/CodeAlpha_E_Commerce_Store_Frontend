@@ -11,6 +11,8 @@ import UserLayout from "../layouts/UserLayout"
 import SignUp from "../pages/SignUp"
 import Login from "../pages/Login"
 import Cart from "../pages/user/Cart"
+import Checkout from "../pages/user/Checkout"
+import OrderSuccess from "../pages/user/OrderSuccess"
 
 //admin imports
 import AdminLayout from "../layouts/AdminLayout"
@@ -31,6 +33,8 @@ const router = createBrowserRouter([
             {path:"/about-us", element: <AboutUs/>},
             {path:"/contact-us", element: <ContactUs/>},
             {path:"/cart", element: <ProtectedRoute><Cart/></ProtectedRoute>},
+            {path:"/cart/checkout" , element : <ProtectedRoute><Checkout/></ProtectedRoute> },
+            {path:"/cart/checkout/order-success" , element : <ProtectedRoute><OrderSuccess/></ProtectedRoute>},
             {path:"/sign-up", element: <SignUp/>},
             {path:"/login", element: <Login/>},
         ]
@@ -47,10 +51,6 @@ const router = createBrowserRouter([
 
         ]
     }
-    
-
-
-
 
 ])
 

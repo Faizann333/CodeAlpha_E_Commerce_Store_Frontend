@@ -1,6 +1,9 @@
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState ,useContext } from "react";
+import { CartContext } from "../../store/CartContext";
+import Button from "../../components/Button";
+
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
@@ -10,6 +13,7 @@ const ProductDetail = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [quantity, setQuantity] = useState(1);
+    const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
     setLoading(true);
@@ -42,7 +46,7 @@ const ProductDetail = () => {
   return (
     <div className="min-h-screen bg-gray-100 py-10 px-6">
       <div className="max-w-7xl mx-auto bg-white rounded-2xl shadow-xl p-8 grid md:grid-cols-2 gap-10">
-        
+
         {/* LEFT SIDE - IMAGE */}
         <div className="flex justify-center items-center bg-gray-50 rounded-xl p-6">
           <img
@@ -54,7 +58,7 @@ const ProductDetail = () => {
 
         {/* RIGHT SIDE - DETAILS */}
         <div className="flex flex-col justify-between">
-          
+
           <div>
             {/* Category */}
             <p className="text-sm text-gray-500 uppercase tracking-wide">
@@ -102,7 +106,7 @@ const ProductDetail = () => {
 
           {/* PURCHASE SECTION */}
           <div className="mt-8 border-t pt-6">
-            
+
             {/* Quantity Selector */}
             <div className="flex items-center gap-4 mb-4">
               <span className="font-medium">Quantity:</span>
@@ -117,21 +121,16 @@ const ProductDetail = () => {
             </div>
 
             {/* Buttons */}
-            <div className="flex gap-4">
-              <button
-                disabled={!product?.isAvailable}
-                className={`flex-1 py-3 rounded-xl font-semibold transition ${
-                  product?.isAvailable
-                    ? "bg-black text-white hover:bg-gray-800"
-                    : "bg-gray-400 text-white cursor-not-allowed"
-                }`}
-              >
-                Add to Cart
-              </button>
+            <div className="flex gap-4 w-full">
+              <Button
+                name="Add to Cart"
+                className=" w-[550px] text-white  mt-2 bg-purple-700"
+                onClick={() => addToCart(product._id)}
+              />
 
-              <button className="flex-1 py-3 rounded-xl border border-black font-semibold hover:bg-gray-100 transition">
+              {/* <button className="flex-1 py-3 rounded-xl border border-black font-semibold hover:bg-gray-100 transition">
                 Buy Now
-              </button>
+              </button> */}
             </div>
 
           </div>

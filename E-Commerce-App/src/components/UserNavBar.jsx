@@ -3,6 +3,7 @@ import Button from './Button'
 import { useNavigate, NavLink } from 'react-router-dom'
 import { AuthContext } from '../store/AuthContext'
 import axios from 'axios';
+import { toast } from 'react-toastify';
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const UserNavBar = () => {
@@ -14,7 +15,7 @@ const UserNavBar = () => {
         .then((res) => {
           navigate("/");
             setUser(false);
-          alert("Logout successful!");
+          toast.success("Logout successful!");
         })
         .catch((err) => {
           console.log(err);
@@ -22,7 +23,7 @@ const UserNavBar = () => {
     };
 
     return (
-        <header className='flex justify-between items-center sticky z-50 top-[-10px] h-[70px] bg-gray-800 text-gray-100 px-4'>
+        <header className='flex justify-between items-center sticky z-50 top-[-10px] h-[70px] bg-black text-gray-100 px-4'>
             <div className="ml-6 font-bold text-2xl">FLONE</div>
             <nav className='flex items-center gap-3'>
                 <ul className="flex gap-7 pr-9">
@@ -94,8 +95,16 @@ const UserNavBar = () => {
                 </ul>
 
             </nav>
+            <div>
+
+            </div>
            { user ? (
+            <div className='flex gap-3'>
             <Button name="Logout" onClick={handleLogout} />
+             <Button name="Admin Dashboard" onClick={() => {
+                navigate("/admin/dashboard")
+             }} />
+             </div>
            ) : 
            
            <div className='flex gap-3'>

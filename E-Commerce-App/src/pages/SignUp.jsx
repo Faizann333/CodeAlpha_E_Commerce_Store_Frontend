@@ -2,7 +2,9 @@ import { Link } from 'react-router-dom';
 import Button from '../components/Button'
 import { useState } from 'react';
 import axios from 'axios';
+import {toast} from "react-toastify";
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 
 const SignUp = () => {
 
@@ -25,14 +27,14 @@ const SignUp = () => {
   withCredentials: true,
 })
       .then((res) => {
-        alert("Signup successful! Please login.");
+        toast.success("Signup successful! Please login.");
         // setName('');
         // setEmail('');
         // setPassword('');
         // setConfirmPassword('');
       }
     ).catch((err) => {
-        alert("Signup failed: " + err.response.data.message);
+        toast.error("Signup failed: " + err.response.data.message);
     });
 
   }

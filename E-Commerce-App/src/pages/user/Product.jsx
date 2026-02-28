@@ -6,7 +6,6 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const Product = () => {
   const [products, setProducts] = useState([]);
 
-console.log(products);
     useEffect(()=>{
               axios.get(`${API_BASE_URL}/user/get-all-available-products`)
               .then((res)=>{ setProducts(res.data.allAvailableProducts)})

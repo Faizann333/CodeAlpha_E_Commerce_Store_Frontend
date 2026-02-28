@@ -1,9 +1,11 @@
-import React from 'react'
-
+import UserList from "../../components/admin/UserList"
 const Users = () => {
+ 
+  
+  
   return (
-    <div>
-        <h1>users</h1>
+    <div className="bg-gray-800">
+        <UserList/>
     </div>
   )
 }
