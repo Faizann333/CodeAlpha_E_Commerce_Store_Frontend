@@ -1,5 +1,5 @@
 import React from 'react'
-import heroImage from '../assets/hero-image1.png'
+import heroImage from '../assets/heroImage.png'
 import Button from './Button'
 import { useNavigate } from 'react-router-dom'
 
